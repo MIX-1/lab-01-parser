@@ -21,7 +21,6 @@ HunterGate(
 
 
 project(lab-01-parser)
-#string(APPEND CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/GCC-9FIX.cmake")
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -48,7 +47,7 @@ target_include_directories(tests
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
-target_link_libraries(tests GTest::main GTest::gtest)
+target_link_libraries(tests GTest::gtest_main lab-01-parser)
 target_link_libraries(lab-01-parser nlohmann_json::nlohmann_json)
 
 enable_testing()
