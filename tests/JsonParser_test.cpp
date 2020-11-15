@@ -280,6 +280,48 @@ R"({
     EXPECT_EQ(gMax_test, 6);
     EXPECT_EQ(dMax_test, 7);
 }
+TEST(Check_Length, Count_Max_Length_Extra_Debt) {
+string string_test_true =\
+R"({
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "debt": null
+    },
+    {
+      "name": "Sidorov Ivan",
+      "group": 31,
+      "avg": 4,
+      "debt": "Computer Language"
+    },
+    {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++",
+        "Linux",
+        "Network"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 3
+  }
+})";
+JsonParser j;
+j.parse_string_to_json(string_test_true);
+j.extraction_data_from_json();
+j.maxLength();
+int nMax_test = j.get_nMax();
+int gMax_test = j.get_gMax();
+int dMax_test = j.get_dMax();
+EXPECT_EQ(nMax_test, 13);
+EXPECT_EQ(gMax_test, 6);
+EXPECT_EQ(dMax_test, 17);
+}
 //Struct
 TEST(Check_Enter, Enter_to_struct) {
     string string_test_true =\
