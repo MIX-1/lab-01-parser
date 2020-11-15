@@ -25,7 +25,7 @@ string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
-hunter_add_package(GTest 1.10.0)
+hunter_add_package(GTest v1.10.0)
 find_package(GTest CONFIG REQUIRED)
 
 hunter_add_package(nlohmann_json)
